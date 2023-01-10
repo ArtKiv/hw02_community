@@ -27,5 +27,5 @@ class Post(models.Model):
         null=True,
         on_delete=models.CASCADE,
         related_name='groups_posts'
-        )
+    )
 # Create your models here.
