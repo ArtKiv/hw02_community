@@ -5,22 +5,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <h1>{{title}}</h1>
-  </div>
-{% for post in posts %}
-  <ul>
-    <li>
-      Автор: {{ post.author.get_full_name }}
-    </li>
-    <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
-    </li>
-  </ul>
-  <p>{{ post.text }}</p>    
-  {% if post.group %}
-    <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
-  {%endif%}
-  {% if not forloop.last %}<hr>{% endif %}
-{% endfor %} 
+  <h1>Последние обновления на сайте</h1>
+  {% for post in posts %}
+    <article>
+      {% include 'includes/main_article.html' %}
+      
+      {% if post.group %}
+        <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+      {%endif%}
+    </article>
+    {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %} 
 {% endblock %}  
