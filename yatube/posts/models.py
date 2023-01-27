@@ -40,3 +40,6 @@ class Post(models.Model):
     class Meta:
         ordering = ['-pub_date']
         verbose_name_plural = 'Посты'
+
+    def __str__(self) -> str:
+        return self.text
