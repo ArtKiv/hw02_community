@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Профайл пользователя {{ user.first_name }} {{ user.last_name }}
+{% endblock %}
+
+{% block content %}
+  <h1>Все посты пользователя {{ user.first_name }} {{ user.last_name }}</h1>
+  <h3>Всего постов: {{ page_obj.paginator.count }} </h3>
+  
+  {% include 'includes/main_article.html' %}
+
+  {% include 'includes/paginator.html' %}
+{% endblock %}  
